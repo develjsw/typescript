@@ -14,3 +14,31 @@
    → <br>
 2. (브라우저, NodeJS, 자바스크립트 엔진에서 수행) <br>
    JS Source → AST(추상 문법 트리) → 바이트코드 → 실행 <br>
+
+<h3>TS파일 실행을 위한 준비</h3>
+- Node.js 설치
+  - 설치경로 : https://nodejs.org
+  - 목적 : 
+    - JS 파일을 실행하기 위함
+    - TSC(TypeScript Compiler)를 설치하기 위함 
+<br> 
+- TS 컴파일을 위한 tsc 설치 : 
+  - npm 명령어로 tsc 전역에 설치
+    ~~~
+    $ npm i -g typescript
+    ~~~
+  - 정상동작 확인
+    ~~~
+    $ cd /드라이브/워킹디렉토리
+    
+    $ touch test.ts
+    
+    $ vi test.ts
+      # 실행할 내용 입력
+    
+    $ tsc test.ts
+      # test.js 파일 생성 확인
+    
+    $ node test.js
+      # 실행결과 확인 
+    ~~~
