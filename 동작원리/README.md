@@ -16,18 +16,19 @@
    JS Source → AST(추상 문법 트리) → 바이트코드 → 실행 <br>
 
 <h3>TS파일 실행을 위한 준비</h3>
-- Node.js 설치
-  - 설치경로 : https://nodejs.org
-  - 목적 : 
-    - JS 파일을 실행하기 위함
-    - TSC(TypeScript Compiler)를 설치하기 위함 
+
+- Node.js 설치<br>
+  - 설치경로 : https://nodejs.org<br>
+  - 목적 :<br>
+    - JS 파일을 실행하기 위함<br>
+    - TSC(TypeScript Compiler)를 설치하기 위함<br> 
 <br> 
-- TS 컴파일을 위한 tsc 설치 : 
-  - npm 명령어로 tsc 전역에 설치
+- TS 컴파일을 위한 tsc 설치 :<br> 
+  - npm 명령어로 tsc 전역에 설치<br>
     ~~~
     $ npm i -g typescript
     ~~~
-  - 정상동작 확인
+  - 정상동작 확인<br>
     ~~~
     $ cd /드라이브/워킹디렉토리
     
