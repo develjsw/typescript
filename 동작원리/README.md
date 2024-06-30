@@ -31,14 +31,14 @@
     ~~~
     $ cd /드라이브/워킹디렉토리
     
-    $ touch test.ts
+    $ touch property.ts
     
-    $ vi test.ts
+    $ vi property.ts
       # 실행할 내용 입력
     
-    $ tsc test.ts
-      # test.js 파일 생성 확인
+    $ tsc property.ts
+      # property.js 파일 생성 확인
     
-    $ node test.js
+    $ node property.js
       # 실행결과 확인 
     ~~~
