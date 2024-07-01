@@ -10,8 +10,8 @@
 <h3>제네릭의 형태</h3>
 - '<>' 기호를 변수명, 함수명 뒤에 적어주어 선언<br>
 - 제네릭명은 일반적으로 T로 표시하나, 꼭 T가 아니여도 됨<br>
-    ```
-    EX) 
+    ```typescript
+    // 예시 코드
     function generic<T>(variable: T): T {
        return variable;
     }
