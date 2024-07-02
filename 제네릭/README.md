@@ -20,6 +20,19 @@
     console.log(generic(1000)); // 1000
     console.log(generic(true)); // true
     ```
+  
+- 제네릭에서 인수를 배열로 받을 경우에는 T[] 또는 Array<T>로 처리해줘야 함 
+    ```
+    // 예시 코드
+    
+    function generic<T>(arr: T[]): T[] {
+       return arr; 
+    }
+  
+    function generic<T>(arr: Array<T>): Array<T> {
+       return arr; 
+    }
+    ```
 
 <h3>제네릭(Generic) 타입의 사용 이유</h3>
 단일 타입, 유니온 타입으로만 표현하기 어려운 경우에 사용<br>
