@@ -10,6 +10,7 @@
 <h3>제네릭의 형태</h3>
 - `<>` 기호를 변수명, 함수명 뒤에 적어주어 선언<br>
 - 제네릭명은 일반적으로 T로 표시하나, 꼭 T가 아니어도 됨<br>
+
     ~~~
     // 예시 코드
     function generic<T>(variable: T): T {
@@ -18,11 +19,12 @@
     console.log(generic('typescript')); // typescript
     console.log(generic(1000)); // 1000
     console.log(generic(true)); // true
-    ~~~ 
-- 제네릭에서 인수를 배열로 받을 경우에는 T[] 또는 Array<T>로 처리해줘야 함 
+    ~~~
+ 
+- 제네릭에서 인수를 배열로 받을 경우에는 T[] 또는 Array<T>로 처리해줘야 함<br>
+
     ~~~
     // 예시 코드
-    
     function generic<T>(arr: T[]): T[] {
        return arr; 
     }
