@@ -1,5 +1,5 @@
 interface FruitBox {
-    [key: string]: number; // 인덱스 시그니처 : key는 문자열만 허용, 값은 숫자만 허용
+    [key: string]: number; // Index Signature (인덱스 시그니처) : key는 문자열만 허용, 값은 숫자만 허용
 }
 
 const myFruit: FruitBox = {
