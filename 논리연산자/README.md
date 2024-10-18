@@ -13,16 +13,44 @@ EX-2) || 연산자 :
 ~~~
 
 1. `&&` 논리 연산자
-   - 왼쪽의 조건이 true (또는 truthy)일 경우, 오른쪽의 값을 반환
-   - 왼쪽의 조건이 false (또는 falsy)일 경우, 오른쪽을 평가하지 않고 바로 false 반환
+   - 왼쪽의 조건이 true (또는 truthy)일 경우, 오른쪽 값을 평가한 후 그 결과를 반환
+   - 왼쪽의 조건이 false (또는 falsy)일 경우, 왼쪽 값을 그대로 반환하고, 오른쪽은 평가하지 않음
    ~~~
-   EX)
+   EX-1)
+      true && true // true
+      true && false // false
+      false && false // false
+      false && true // false
+   
+   EX-2)
+      const variable1 = null
+      const variable2 = undefined
+      const variable3 = false
+   
+      const addVariable = 10
+   
+      "값존재" && { userInfo: { userName: 'sangwoo' }, orderId: addVariable } // { userInfo: { userName: 'sangwoo' }, orderId: addVariable }  
+      "값존재" && variable1 // null
+      "값존재" && variable2 // undefined
+      "값존재" && variable3 // false
+      "값존재" && addVariable // 10
+   
+      variable1 && "값존재" // null
+      variable2 && { userInfo: { userName: 'sangwoo' }, orderId: addVariable } // undefined
+      variable3 && "값존재" // false
+   
+      "값존재" && addVariable // 10
+   
+      true && (() => "Function result")() // "Function result" 
+      true && variable1 // null 
+      true && variable2 // undefined
+      true && variable3 // false
    ~~~
 2. `||` 논리 연산자
-   - 왼쪽의 조건이 false(또는 falsy)일 경우, 오른쪽 값을 반환
-   - 왼쪽의 조건이 true(또는 truthy)일 경우, 오른쪽을 평가하지 않고 바로 왼쪽 값을 반환
+   - 왼쪽의 조건이 false(또는 falsy)일 경우, 오른쪽 값을 평가한 후 그 결과를 반환
+   - 왼쪽의 조건이 true(또는 truthy)일 경우, 오른쪽을 평가하지 않고 왼쪽 값을 그대로 반환
    ~~~
-   EX)
+   EX-1)
    ~~~
 ---
 3. `<<` 논리 연산자
