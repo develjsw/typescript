@@ -1,4 +1,4 @@
-### JavaScript 논리연산자
+### JavaScript - 연산자
 
 ---
 단축 평가 : `&&` 또는 `||` 연산자를 사용할 때, 왼쪽의 피연산자 만으로도 결과가 확정되면 오른쪽 피연산자를 평가하지 않는 동작을 말함
@@ -41,7 +41,7 @@ EX-2) || 연산자 :
    
       "값존재" && addVariable // 10
    
-      true && (() => "Function result")() // "Function result" 
+      true && (() => "Function result")() // "Function result"
       true && variable1 // null 
       true && variable2 // undefined
       true && variable3 // false
@@ -51,12 +51,77 @@ EX-2) || 연산자 :
    - 왼쪽의 조건이 true(또는 truthy)일 경우, 오른쪽을 평가하지 않고 왼쪽 값을 그대로 반환
    ~~~
    EX-1)
+      true || true // true
+      true || false // true
+      false || false // false
+      false || true // true
+
+   EX-2)
+      const variable1 = null
+      const variable2 = undefined
+      const variable3 = false
+   
+      const addVariable = 10
+   
+      "값존재" || { userInfo: { userName: 'sangwoo' }, orderId: addVariable } // "값존재"
+      "값존재" || variable1 // "값존재"
+      "값존재" || variable2 // "값존재"
+      "값존재" || variable3 // "값존재"
+      "값존재" || addVariable // "값존재"
+   
+      variable1 || "값존재" // "값존재"
+      variable2 || { userInfo: { userName: 'sangwoo' }, orderId: addVariable } // { userInfo: { userName: 'sangwoo' }, orderId: 10 }
+      variable3 || "값존재" // "값존재"
+
+      "값존재" || addVariable // "값존재"
+   
+      true || (() => "Function result")() // true
+      true || variable1 // true
+      true || variable2 // true
+      true || variable3 // true
    ~~~
 ---
-3. `<<` 논리 연산자
-4. `>>` 논리 연산자
-5. `!` 논리 연산자
-6. `!!` 논리 연산자
-7. `?` 논리 연산자
-8. `??` 논리 연산자
+3. `<<` 비트 연산자
+4. `>>` 비트 연산자
+5. `!` 부정 논리 연산자
+   - 피연산자의 논리적 반대값을 반환
+   - 주어진 값이 true(truthy)이면 false(falsy), false(falsy)면 true(truthy)를 반환
+   ~~~
+   EX) 
+      !0 // true
+      !null // true
+      !false // true
+      !undefined // true
+      !NaN // true
+      ![] // false
+      !{} // false
+      !1 // false
+   ~~~
+6. `!!` 진리성 확인 연산자
+   - 논리적 참/거짓 값을 판별할 때 사용
+   ~~~
+   EX)
+      !!1000 // true
+      !!0 // false
+      !!null // false
+      !!false // false
+      !!undefined // false
+      !!NaN // false
+      !![] // true
+      !!{} // true
+   ~~~   
+7. `?` 삼항 연산자
+   - 조건문을 짧고 간결하게 표현할 때 사용
+   - condition(평가될 조건) ? expressionIfTrue(조건이 참인 경우 표현식) : expressionIfFalse(조건이 거짓인 경우 표현식);
+8. `??` NULL 병합 연산자
+   - null 또는 undefined인 경우에만 오른쪽 값을 반환, 이외에 값은 왼쪽 값을 반환
+   ~~~
+   EX-1)
+      const name = null
+      const customer = name ?? "newCustomer"; // newCustomer
+   
+   EX-2)   
+      const name = "홍길동"
+      const customer = name ?? "newCustomer"; // "홍길동"
+   ~~~
 ---
