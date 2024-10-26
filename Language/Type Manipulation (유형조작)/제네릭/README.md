@@ -50,3 +50,63 @@
   }
   ~~~
 <h6>** 참고 : 일반적으로 클래스나 인터페이스에서 extends를 사용 할 경우 `확장`의 의미로 사용되지만, 제네릭의 경우에는 `제한`의 의미로 사용된다. **</h6>
+
+---
+
+### 제네릭 함수에 활용하는 법
+
+~~~
+function swapValues<T, K>(a: T, b: K): [K, T] {
+    return [b, a];
+}
+
+/*
+  1. <T, K> : 제네릭 선언
+    swapValues 함수를 호출할 때 T, K 타입을 전달
+
+  2. (a: T, b: K) : 인자 타입에 제네릭 적용
+    첫번째 인자 a의 타입은 T,
+    두번째 인자 b의 타입은 K
+    함수가 호출될 때 a, b의 타입을 결정함
+
+  3. [K, T] : 함수의 반환 타입에 제네릭 적용
+    이 함수는 배열을 반환하고
+    배열의 첫번째 요소는 K 타입
+    두번째 요소는 T 타입
+*/
+~~~
+
+### 제네릭 변수에 활용하는 법
+
+~~~
+[ AS-IS ]
+type 문자타입선택입력값 = string | null | undefined
+type 숫자타입선택입력값 = string | null | undefined
+type ...타입선택입력값 = ... | null | undefined
+
+[ TO-BE ]
+type Nullish<T> = T | null | undefined
+// T는 Nullish 타입을 사용할 때 결정하도록 만듦
+
+EX)
+type 문자타입선택입력값 = Nullish<string>
+type 숫자타입선택입력값 = Nullish<number>
+type ...타입선택입력값 = Nullish<...>
+~~~
+
+### 제네릭 객체에 활용하는 법
+- const 객체: T = { ... }
+
+~~~
+interface User {
+  id: number;
+  name: string;
+  age: number;
+  email: string;
+  address: string;
+}
+
+작성중..
+~~~
+
+---
