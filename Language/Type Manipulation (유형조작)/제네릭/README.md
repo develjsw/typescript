@@ -105,8 +105,76 @@ interface User {
   email: string;
   address: string;
 }
+~~~
 
-작성중..
+~~~
+[ AS-IS ]
+interface UserAge {
+  id: number;
+  age: number;
+}
+
+interface UserNameAge {
+  name: string;
+  age: number;
+}
+
+interface UserEmailAddress {
+  email: string;
+  address: string;
+}
+~~~
+
+~~~
+// IDEA
+// K 타입을 순회하면서 T 타입을 재사용
+type Pick<T, K> = {
+  [key in K]: T[key]
+}
+~~~
+
+~~~
+[ TO-BE ]
+type UserNameAge = Pick<User, 'name' | 'age'>
+type UserIdAge = Pick<User, 'id' | 'age'>
+type UserEmailAddress = Pick<User, 'email' | 'address'>
+~~~
+
+### 제네릭(generic)에 제약조건(extends)을 거는 이유?
+- T, K 타입 매개변수는 사실 모든 타입이 될 수 있음
+- 다시말해 any를 사용하는 것과 같음
+
+~~~
+interface User {
+  id: number;
+  name: string;
+  age: number;
+  email: string;
+  address: string;
+}
+~~~
+
+~~~
+[ AS-IS ]
+type Pick<T, K> = {
+  [key in K]: T[key]
+}
+에서 K는 모든 타입(null, undefined, number, boolean, function, object, string)이 될수 있기 때문에
+T 속성에 해당되는 타입인지 확신할 수 없음
+~~~
+
+~~~
+// IDEA
+// K를 T의 속성 집합에 포함되는 타입으로 제한
+type Pick<T, K extends keyof T> = {
+  [key in K]: T[key]
+}
+~~~
+
+~~~
+[ TO-BE ]
+type UserNameAge = Pick<User, 'name' | 'age'> // 정상 동작 
+type UserPhoneNumber = Pick<User, 'phoneNumber'> // User 객체에는 phoneNumber 속성이 존재하지 않기 때문에 예외 발생
 ~~~
 
 ---
