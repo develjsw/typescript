@@ -143,6 +143,7 @@ type UserEmailAddress = Pick<User, 'email' | 'address'>
 ### 제네릭(generic)에 제약조건(extends)을 거는 이유?
 - T, K 타입 매개변수는 사실 모든 타입이 될 수 있음
 - 다시말해 any를 사용하는 것과 같음
+- 따라서 제네릭을 통해 확장성을 얻고, 그 확장성 내에 타입의 제한을 둠으로써 타입 안정성을 가져갈 수 있도록 도와주는 것
 
 ~~~
 interface User {
