@@ -60,6 +60,43 @@
       // 선언형
       const total = numbers.reduce((acc, cur) => acc + cur, 0);
       ~~~
+    - 일급 함수 : 함수를 값으로 다룰 수 있는 것
+      - 변수에 함수를 할당할 수 있음
+        ~~~
+        const sayHello = function() {
+            console.log("Hello!");
+        };
+        sayHello(); // Hello!
+        ~~~
+      - 함수를 다른 함수의 매개변수로 전달할 수 있음
+        ~~~
+        function executeFunction(fn) {
+            fn(); // 전달받은 함수를 실행
+        }
+
+        executeFunction(() => console.log("Hello from a function!")); // Hello from a function!
+        ~~~
+      - 함수를 반환값으로 사용할 수 있음
+        ~~~
+        function createMultiplier(factor) {
+            return function(number) {
+                return number * factor;
+            };
+        }
+
+        const double = createMultiplier(2); // 함수를 반환받음
+        console.log(double(5)); // 10
+        ~~~
+      - 데이터 구조에 저장할 수 있음
+        ~~~
+        const functions = [
+            () => console.log("First function"),
+            () => console.log("Second function"),
+        ];
+
+        functions[0](); // First function
+        functions[1](); // Second function
+        ~~~
   - 목표 :
     - 변수를 최소화하고, 상태를 관리하기 쉽게 만들어 코드의 예측 가능성을 높이는 것
     - 데이터의 변환과 로직을 간결하게 작성하여 가독성과 유지보수성을 향상
