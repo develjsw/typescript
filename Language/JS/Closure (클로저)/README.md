@@ -18,10 +18,10 @@
         return innerFunction;
     }
     
-    const myClosure = outerFunction(); // outerFunction 실행 후 innerFunction 반환
-    myClosure(); // 1
-    myClosure(); // 2
-    myClosure(); // 3
+    const myClosure = outerFunction(); // outerFunction 실행 후 innerFunction 반환 (즉, innerFunction 함수가 변수에 저장되어 있는 것과 동일한 의미) 
+    myClosure(); // innerFunction()을 실행하는 것과 동일 // 1
+    myClosure(); // innerFunction()을 실행하는 것과 동일 // 2
+    myClosure(); // innerFunction()을 실행하는 것과 동일 // 3
     
     /*
         innerFunction은 count에 접근할 수 있는 클로저를 형성함
